@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise Estratégica | Casa Goianita</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts: Poppins & Merriweather -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Configuração de Tokens V5 (Live Design System) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        live: {
+                            deep: '#06192a', 
+                            glass: 'rgba(10, 36, 61, 0.75)', 
+                            accent: '#00e800', 
+                            'accent-dim': 'rgba(0, 232, 0, 0.15)',
+                            text: '#ffffff',
+                            muted: '#cccccc', 
+                            border: 'rgba(255, 255, 255, 0.05)'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    },
+                    boxShadow: {
+                        'neon': '0 0 10px rgba(0, 232, 0, 0.15)',
+                        'neon-hover': '0 0 25px rgba(0, 232, 0, 0.4)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #06192a;
+            color: #cccccc;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            position: relative;
+        }
+        .bg-base {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -3;
+            background: #06192a;
+        }
+        .texture-layer {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2;
+            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+            background-attachment: fixed; opacity: 0.1;
+        }
+        .flashlight-effect {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+            pointer-events: none;
+            background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 232, 0, 0.15), transparent 40%);
+            mix-blend-mode: screen;
+        }
+        /* Scroll Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .glass-card {
+            background: var(--live-glass, rgba(10, 36, 61, 0.75));
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 1rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            border-color: rgba(0, 232, 0, 0.3);
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+            transform: translateY(-2px);
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #06192a; }
+        ::-webkit-scrollbar-thumb { background: #1e3a5f; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #00e800; }
+        
+        .hero-title {
+            background: linear-gradient(to right, #ffffff, #00e800);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="bg-base"></div>
+    <div class="texture-layer"></div>
+    <div class="flashlight-effect"></div>
+
+    <nav class="fixed top-0 w-full z-50 bg-live-deep/80 backdrop-blur-md border-b border-live-border">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <i data-lucide="bar-chart-2" class="text-live-accent w-6 h-6"></i>
+                <span class="text-white font-semibold tracking-wide">Live Consultoria</span>
+            </div>
+            <a href="#quick-wins" class="px-4 py-2 bg-live-accent/10 text-live-accent border border-live-accent/50 rounded-full text-sm font-medium hover:bg-live-accent hover:text-live-deep transition-all shadow-neon hover:shadow-neon-hover">
+                Plano Tático
+            </a>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-6 pt-32 pb-24 space-y-24">
+        
+        <!-- Hero Section -->
+        <section class="reveal text-center space-y-6 pt-10">
+            <h1 class="text-5xl md:text-6xl font-bold hero-title tracking-tight font-serif">Análise Estratégica</h1>
+            <p class="text-2xl text-white font-medium">Projeto de Reestruturação Casa Goianita</p>
+            <p class="text-live-muted text-lg max-w-2xl mx-auto leading-relaxed">
+                Um mergulho profundo no progresso do Plano de Ação, gargalos operacionais revelados nas atas e o roadmap de Quick Wins para tração de vendas e geração de caixa.
+            </p>
+        </section>
+
+        <!-- Seção 1 -->
+        <section class="reveal glass-card relative overflow-hidden" id="progresso">
+            <div class="absolute top-0 right-0 p-6 opacity-10"><i data-lucide="target" class="w-32 h-32 text-live-accent"></i></div>
+            <h2 class="text-3xl font-semibold text-white mb-8 flex items-center gap-3">
+                <i data-lucide="activity" class="text-live-accent w-8 h-8"></i>
+                1. Progresso do Plano de Ação
+            </h2>
+            <div class="space-y-6">
+                <div class="border-l-2 border-live-accent pl-4">
+                    <h3 class="text-xl text-white font-medium">Governança e Sucessão</h3>
+                    <p class="mt-2 text-sm text-live-muted"><strong>Realizado:</strong> Estatuto do Conselho Gestor.<br/><strong>Pendente:</strong> Acordo Societário e reestruturação complexa dos CNPJs (foco na operação "Castor").</p>
+                </div>
+                <div class="border-l-2 border-live-accent pl-4">
+                    <h3 class="text-xl text-white font-medium">Processos e Tecnologia</h3>
+                    <p class="mt-2 text-sm text-live-muted"><strong>Realizado:</strong> Mapeamento AS-IS, Manual 5S, seleção de ERP (Olist/Magazord).<br/><strong>Em Andamento:</strong> Implantação Olist, configurações fiscais, multiempresa.<br/><strong>Gargalo:</strong> Resistência da equipe de loja e problemas com transferências sistêmicas.</p>
+                </div>
+                <div class="border-l-2 border-live-accent pl-4">
+                    <h3 class="text-xl text-white font-medium">Diagnóstico Financeiro</h3>
+                    <p class="mt-2 text-sm text-live-muted"><strong>Realizado:</strong> Identificação de passivos e gargalos de planilhas paralelas. Setup fiscal no Olist.<br/><strong>Pendente:</strong> Auditoria completa e estruturação de DRE/DFC (depende da adoção do Olist).</p>
+                </div>
+                <div class="border-l-2 border-live-accent pl-4">
+                    <h3 class="text-xl text-white font-medium">Estratégia Comercial e Marketing</h3>
+                    <p class="mt-2 text-sm text-live-muted"><strong>Realizado:</strong> Reestruturação de compras contra ruptura; integração TikTok Shopping.<br/><strong>Pendente:</strong> Reposicionamento físico ("Loja das Porcelanas") e planejamento estruturado de Ads.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 2 -->
+        <section class="reveal glass-card relative overflow-hidden" id="atas">
+            <div class="absolute top-0 right-0 p-6 opacity-10"><i data-lucide="message-square" class="w-32 h-32 text-live-accent"></i></div>
+            <h2 class="text-3xl font-semibold text-white mb-8 flex items-center gap-3">
+                <i data-lucide="book-open" class="text-live-accent w-8 h-8"></i>
+                2. Raio-X Operacional (Atas 04/15 e 04/16)
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white/5 rounded-lg p-5 border border-white/10 hover:border-live-accent/30 transition-colors">
+                    <h3 class="text-lg font-semibold text-white flex items-center gap-2 mb-3"><i data-lucide="store" class="text-live-accent w-5 h-5"></i> Reunião 04/15: A Loja Física</h3>
+                    <ul class="space-y-3 text-sm text-live-muted">
+                        <li class="flex gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-live-accent shrink-0 mt-0.5"></i> Abandono do CNPJ "Virtual" por dívidas; concentração no "Castor".</li>
+                        <li class="flex gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-live-accent shrink-0 mt-0.5"></i> Enxugamento de espaço e criação da nichada <strong>Loja das Porcelanas</strong>.</li>
+                        <li class="flex gap-2"><i data-lucide="alert-triangle" class="w-4 h-4 text-yellow-500 shrink-0 mt-0.5"></i> <strong>Gargalo:</strong> Equipe resiste ao Olist. Transferências feitas "na mão" quebram o fluxo de estoque.</li>
+                        <li class="flex gap-2"><i data-lucide="alert-triangle" class="w-4 h-4 text-yellow-500 shrink-0 mt-0.5"></i> <strong>Desalinhamento:</strong> O Marketing não recebe as ofertas da loja para promover.</li>
+                    </ul>
+                </div>
+                <div class="bg-white/5 rounded-lg p-5 border border-white/10 hover:border-live-accent/30 transition-colors">
+                    <h3 class="text-lg font-semibold text-white flex items-center gap-2 mb-3"><i data-lucide="globe" class="text-live-accent w-5 h-5"></i> Reunião 04/16: Desafio E-commerce</h3>
+                    <ul class="space-y-3 text-sm text-live-muted">
+                        <li class="flex gap-2"><i data-lucide="alert-circle" class="w-4 h-4 text-red-500 shrink-0 mt-0.5"></i> <strong>Inviabilidade Fiscal:</strong> Vender em marketplace com o CNPJ Lucro Real queima a margem devido a DIFAL e ICMS.</li>
+                        <li class="flex gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-live-accent shrink-0 mt-0.5"></i> <strong>Solução Urgente:</strong> Abertura de um novo CNPJ optante pelo Simples Nacional apenas para as plataformas digitais.</li>
+                        <li class="flex gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-live-accent shrink-0 mt-0.5"></i> <strong>Foco B2B:</strong> Uso estratégico de vendas para Bares/Restaurantes com Inscrição Estadual para reduzir carga tributária.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 3 -->
+        <section class="reveal glass-card" id="trafego">
+            <h2 class="text-3xl font-semibold text-white mb-6 flex items-center gap-3">
+                <i data-lucide="megaphone" class="text-live-accent w-8 h-8"></i>
+                3. O Problema do Tráfego Pago
+            </h2>
+            <div class="bg-red-900/10 border border-red-500/20 p-6 rounded-xl">
+                <p class="text-live-muted mb-4">
+                    A análise revela uma execução de tráfego amadora e isolada. O teste de <em>R$ 500 no Instagram ("impulsionando prateleiras")</em> foi ineficaz. Sem estratégia técnica, não gerou conversões.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
+                    <div class="p-4 bg-live-deep/50 rounded-lg">
+                        <i data-lucide="package-x" class="text-red-400 mb-2"></i>
+                        <h4 class="text-white font-medium mb-1">Sem Foco ABC</h4>
+                        <p class="text-xs text-live-muted">Anúncios de produtos avulsos em vez de Curva A com estoque profundo.</p>
+                    </div>
+                    <div class="p-4 bg-live-deep/50 rounded-lg">
+                        <i data-lucide="handshake" class="text-yellow-400 mb-2"></i>
+                        <h4 class="text-white font-medium mb-1">Verba Desperdiçada</h4>
+                        <p class="text-xs text-live-muted">Bonificações (20-30%) de gigantes como Porto Brasil não foram cobradas para financiar as campanhas.</p>
+                    </div>
+                    <div class="p-4 bg-live-deep/50 rounded-lg">
+                        <i data-lucide="calculator" class="text-red-400 mb-2"></i>
+                        <h4 class="text-white font-medium mb-1">Trava Tributária</h4>
+                        <p class="text-xs text-live-muted">Sem o CNPJ do Simples, injetar muito dinheiro em Ads B2C resultará em vendas sem margem de lucro real.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 4 -->
+        <section class="reveal glass-card" id="dashboard">
+            <h2 class="text-3xl font-semibold text-white mb-8 flex items-center gap-3">
+                <i data-lucide="layout-dashboard" class="text-live-accent w-8 h-8"></i>
+                4. Insights do Dashboard (Out/25 - Mar/26)
+            </h2>
+            <div class="flex flex-wrap gap-4 mb-8">
+                <div class="bg-white/5 border border-white/10 px-4 py-3 rounded-lg flex items-center gap-3">
+                    <span class="text-2xl font-bold text-live-accent">18</span>
+                    <span class="text-sm text-live-muted leading-tight">Entregáveis e<br/>Ferramentas</span>
+                </div>
+                <div class="bg-white/5 border border-white/10 px-4 py-3 rounded-lg flex items-center gap-3">
+                    <span class="text-2xl font-bold text-live-accent">5</span>
+                    <span class="text-sm text-live-muted leading-tight">Processos<br/>Mapeados</span>
+                </div>
+                <div class="bg-white/5 border border-white/10 px-4 py-3 rounded-lg flex items-center gap-3">
+                    <span class="text-2xl font-bold text-live-accent">9</span>
+                    <span class="text-sm text-live-muted leading-tight">Reuniões<br/>Documentadas</span>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="text-white font-medium mb-3 flex items-center gap-2"><i data-lucide="clock" class="w-5 h-5 text-yellow-400"></i> Backlog Urgente</h3>
+                    <ul class="space-y-2 text-sm text-live-muted">
+                        <li class="bg-white/5 p-2 rounded border-l-2 border-yellow-500">Revitalização da Unidade T4 (Limpeza, Fachada, Pintura).</li>
+                        <li class="bg-white/5 p-2 rounded border-l-2 border-white/20">Integração das contratações (Elayne, Ana Paula, Pedro).</li>
+                        <li class="bg-white/5 p-2 rounded border-l-2 border-white/20">Treinamento comercial (Nova visão da marca) e Gamificação.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white font-medium mb-3 flex items-center gap-2"><i data-lucide="boxes" class="w-5 h-5 text-live-accent"></i> Protocolo 5S Estoque</h3>
+                    <p class="text-sm text-live-muted mb-2">Princípio: <em>"Nenhuma mercadoria dorme no chão"</em>.</p>
+                    <ul class="space-y-2 text-xs text-live-muted font-mono">
+                        <li class="flex justify-between border-b border-white/10 pb-1"><span>08:00-09:30</span><span class="text-white">Transferências (Foco Crítico)</span></li>
+                        <li class="flex justify-between border-b border-white/10 pb-1"><span>09:00-11:00</span><span class="text-white">Recebimento e Bipagem</span></li>
+                        <li class="flex justify-between border-b border-white/10 pb-1"><span>13:00-15:30</span><span class="text-white">Reposição e 5S</span></li>
+                        <li class="flex justify-between"><span>15:30-17:00</span><span class="text-white">Auditoria Final</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 5 -->
+        <section class="reveal relative" id="quick-wins">
+            <div class="absolute -inset-4 bg-gradient-to-r from-live-accent/20 to-transparent blur-xl rounded-[3rem] -z-10 opacity-50"></div>
+            <div class="glass-card border-live-accent/50 shadow-[0_0_40px_rgba(0,232,0,0.1)]">
+                <h2 class="text-3xl font-semibold text-white mb-4 flex items-center gap-3">
+                    <i data-lucide="zap" class="text-live-accent w-8 h-8 fill-live-accent/20"></i>
+                    5. Plano Tático & Quick Wins
+                </h2>
+                <p class="text-live-muted mb-8 font-serif">Ações cirúrgicas para geração de caixa no curtíssimo prazo, integrando as fortalezas mapeadas.</p>
+                
+                <div class="space-y-8">
+                    <!-- Win 1 -->
+                    <div class="relative pl-8">
+                        <div class="absolute left-0 top-0 bottom-0 w-px bg-live-accent/30"></div>
+                        <div class="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-live-accent shadow-[0_0_10px_#00e800]"></div>
+                        <h3 class="text-xl font-medium text-white mb-2">A. Dominar Marketplaces via Olist</h3>
+                        <ul class="list-disc list-outside ml-4 text-sm text-live-muted space-y-2">
+                            <li><strong>Virada de Chave:</strong> Ativar o digital EXCLUSIVAMENTE pelo CNPJ Simples Nacional.</li>
+                            <li><strong>Kits e Bundles:</strong> Parametrizar o Olist para vender combos (ex: Kit Gastrô 18 peças), camuflando preços e dando baixa nos itens avulsos.</li>
+                            <li><strong>Ship from Store:</strong> Equipe despacha Curva A no primeiro horário (08h) garantindo métricas de velocidade no algoritmo (Shopee/Mercado Livre).</li>
+                        </ul>
+                    </div>
+
+                    <!-- Win 2 -->
+                    <div class="relative pl-8">
+                        <div class="absolute left-0 top-0 bottom-0 w-px bg-live-accent/30"></div>
+                        <div class="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-live-accent shadow-[0_0_10px_#00e800]"></div>
+                        <h3 class="text-xl font-medium text-white mb-2">B. MVP de Usados para B2B</h3>
+                        <ul class="list-disc list-outside ml-4 text-sm text-live-muted space-y-2">
+                            <li><strong>Consignação:</strong> Captar maquinário via consignação (risco zero de capital travado). Preço deve garantir 40%+ de margem.</li>
+                            <li><strong>Ataque Direto:</strong> Usar o ERP para extrair base de hotéis e bares antigos. Disparar ofertas segmentadas no WhatsApp (evitar exposição em redes abertas).</li>
+                        </ul>
+                    </div>
+
+                    <!-- Win 3 -->
+                    <div class="relative pl-8">
+                        <div class="absolute left-0 top-0 bottom-0 w-px bg-transparent"></div>
+                        <div class="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-live-accent shadow-[0_0_10px_#00e800]"></div>
+                        <h3 class="text-xl font-medium text-white mb-2">C. Loja 85 de Alta Conversão</h3>
+                        <ul class="list-disc list-outside ml-4 text-sm text-live-muted space-y-2">
+                            <li><strong>A Loja das Porcelanas:</strong> VM impecável iluminando produtos premium. Fim da ruptura no salão de vendas.</li>
+                            <li><strong>Central de Listas:</strong> Convite direto a noivas (Casamento/Chá Bar) para consultoria presencial de mesa posta, aumentando as Peças por Atendimento (PA).</li>
+                            <li><strong>Ads com Verba Cooperada:</strong> Usar verba de fornecedores para Google Ads local e direcionar fluxo físico para os consultores via WhatsApp.</li>
+                            <li><strong>A Regra da Gamificação:</strong> Vendedores ganham bônus pela campanha premium, MAS <em>a venda só pontua se estiver 100% lançada no Olist</em> (fim do acerto paralelo).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer class="text-center py-8 border-t border-live-border">
+        <p class="text-sm text-live-muted font-light">© 2026 Live Consultoria. Documento confidencial.</p>
+    </footer>
+
+    <script>
+        // Init Lucide Icons
+        lucide.createIcons();
+
+        // Flashlight Effect
+        document.addEventListener('mousemove', (e) => {
+            document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+            document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+        });
+
+        // Intersection Observer for Scroll Animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
