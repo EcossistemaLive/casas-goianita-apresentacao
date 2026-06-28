@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Model Canvas | Re-commerce Goianita</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        goianita: {
+                            dark: '#030d16',
+                            card: 'rgba(7, 26, 43, 0.75)',
+                            accent: '#00e800',
+                            'accent-glow': 'rgba(0, 232, 0, 0.2)',
+                            gold: '#d4af37',
+                            'gold-glow': 'rgba(212, 175, 55, 0.2)',
+                            text: '#f8fafc',
+                            muted: '#94a3b8',
+                            border: 'rgba(255, 255, 255, 0.06)'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #030d16;
+            color: #f8fafc;
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
+        }
+        .bg-mesh {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -3;
+            background: radial-gradient(circle at 10% 20%, rgba(7, 26, 43, 1) 0%, rgba(3, 13, 22, 1) 90%);
+        }
+        .glow-orb-1 {
+            position: fixed; top: -10%; right: -10%; width: 50vw; height: 50vw; z-index: -2;
+            background: radial-gradient(circle, rgba(0, 232, 0, 0.05) 0%, transparent 70%);
+            filter: blur(80px);
+        }
+        .glow-orb-2 {
+            position: fixed; bottom: -10%; left: -10%; width: 50vw; height: 50vw; z-index: -2;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            filter: blur(80px);
+        }
+        .glass-card {
+            background: rgba(7, 26, 43, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(0, 232, 0, 0.25);
+            box-shadow: 0 12px 30px -10px rgba(0, 232, 0, 0.15);
+            transform: translateY(-2px);
+        }
+        .glass-card-active {
+            border-color: rgba(212, 175, 55, 0.5) !important;
+            box-shadow: 0 12px 30px -10px rgba(212, 175, 55, 0.25) !important;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #030d16; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #00e800; }
+        
+        .bmc-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(2, minmax(180px, auto)) repeat(1, minmax(140px, auto));
+            gap: 1rem;
+        }
+        @media (max-width: 1024px) {
+            .bmc-grid {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+        .hero-title {
+            background: linear-gradient(135deg, #ffffff 30%, #00e800 70%, #d4af37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="antialiased custom-scrollbar">
+    <div class="bg-mesh"></div>
+    <div class="glow-orb-1"></div>
+    <div class="glow-orb-2"></div>
+
+    <nav class="fixed top-0 w-full z-50 bg-goianita-dark/80 backdrop-blur-md border-b border-goianita-border">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <i data-lucide="layout-grid" class="text-goianita-accent w-6 h-6"></i>
+                <span class="text-white font-bold tracking-wider text-lg">Casa Goianita <span class="text-goianita-gold font-light font-serif">Re-commerce</span></span>
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="text-xs px-3 py-1 rounded-full bg-goianita-accent/10 border border-goianita-accent/30 text-goianita-accent font-medium uppercase tracking-widest">Modelo: Novo de Novo</span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-6 pt-28 pb-16 space-y-12">
+        <!-- Header -->
+        <header class="space-y-4">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-semibold tracking-wide text-goianita-muted">
+                <span class="w-2 h-2 rounded-full bg-goianita-accent animate-pulse"></span>
+                PLANEJAMENTO ESTRATÉGICO DE NEGÓCIOS
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold hero-title tracking-tight font-sans">Business Model Canvas</h1>
+            <p class="text-goianita-muted text-base max-w-3xl leading-relaxed">
+                Mapeamento completo do novo ecossistema de venda de usados e seminovos da Casa Goianita. Explore os blocos interativos abaixo clicando para detalhar a estratégia e utilize o <strong>Simulador Financeiro</strong> no final da página para projetar margens e faturamento.
+            </p>
+        </header>
+
+        <!-- BMC Interactive Grid -->
+        <section class="bmc-grid" id="bmc-container">
+            
+            <!-- PARCERIAS-CHAVE (KP) - Row 1 & 2, Col 1 -->
+            <div class="glass-card rounded-xl p-5 lg:col-span-1 lg:row-span-2 flex flex-col justify-between cursor-pointer group" onclick="openDetails('kp')">
+                <div class="space-y-4">
+                    <div class="flex justify-between items-start">
+                        <div class="p-2.5 bg-goianita-accent/10 rounded-lg text-goianita-accent group-hover:bg-goianita-accent/20 transition-all">
+                            <i data-lucide="handshake" class="w-5 h-5"></i>
+                        </div>
+                        <span class="text-xs text-goianita-muted font-bold tracking-wider uppercase">Parcerias</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white group-hover:text-goianita-accent transition-colors">Parcerias-Chave</h3>
+                    <p class="text-xs text-goianita-muted leading-relaxed">
+                        Agentes de captação terceirizados, suporte do Sebrae e fornecedores estratégicos.
+                    </p>
+                </div>
+                <div class="mt-4 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-goianita-accent font-medium">
+                    <span>Ver detalhes</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"></i>
+                </div>
+            </div>
+
+            <!-- ATIVIDADES-CHAVE (KA) - Row 1, Col 2 -->
+            <div class="glass-card rounded-xl p-5 lg:col-span-1 lg:row-span-1 flex flex-col justify-between cursor-pointer group" onclick="openDetails('ka')">
+                <div class="space-y-3">
+                    <div class="flex justify-between items-start">
+                        <div class="p-2.5 bg-goianita-accent/10 rounded-lg text-goianita-accent group-hover:bg-goianita-accent/20 transition-all">
+                            <i data-lucide="activity" class="w-5 h-5"></i>
+                        </div>
+                        <span class="text-xs text-goianita-muted font-bold tracking-wider uppercase">Atividades</span>
+                    </div>
+                    <h3 class="text-base font-bold text-white group-hover:text-goianita-accent transition-colors">Atividades-Chave</h3>
+                    <p class="text-xs text-goianita-muted leading-relaxed">
+                        Curadoria rígida, precificação por IA e faturamento dinâmico.
+                    </p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs text-goianita-accent font-medium">
+                    <span>Ver detalhes</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"></i>
+                </div>
+            </div>
+
+            <!-- RECURSOS-CHAVE (KR) - Row 2, Col 2 -->
+            <div class="glass-card rounded-xl p-5 lg:col-span-1 lg:row-span-1 flex flex-col justify-between cursor-pointer group" onclick="openDetails('kr')">
+                <div class="space-y-3">
+                    <div class="flex justify-between items-start">
+                        <div class="p-2.5 bg-goianita-accent/10 rounded-lg text-goianita-accent group-hover:bg-goianita-accent/20 transition-all">
+                            <i data-lucide="boxes" class="w-5 h-5"></i>
+                        </div>
+                        <span class="text-xs text-goianita-muted font-bold tracking-wider uppercase">Recursos</span>
+                    </div>
+                    <h3 class="text-base font-bold text-white group-hover:text-goianita-accent transition-colors">Recursos-Chave</h3>
+                    <p class="text-xs text-goianita-muted leading-relaxed">
+                        Marca de 71 anos, espaço físico Loja 85 e tecnologia de precificação.
+                    </p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs text-goianita-accent font-medium">
+                    <span>Ver detalhes</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"></i>
+                </div>
+            </div>
+
+            <!-- PROPOSTAS DE VALOR (VP) - Row 1 & 2, Col 3 -->
+            <div class="glass-card rounded-xl p-5 lg:col-span-1 lg:row-span-2 flex flex-col justify-between cursor-pointer group border-goianita-gold/30 hover:border-goianita-gold/60 shadow-[0_0_15px_rgba(212,175,55,0.05)] hover:shadow-[0_0_25px_rgba(212,175,55,0.15)]" onclick="openDetails('vp')">
+                <div class="space-y-4">
+                    <div class="flex justify-between items-start">
+                        <div class="p-2.5 bg-goianita-gold/10 rounded-lg text-goianita-gold group-hover:bg-goianita-gold/20 transition-all">
+                            <i data-lucide="award" class="w-5 h-5"></i>
+                        </div>
+                        <span class="text-xs text-goianita-gold font-bold tracking-wider uppercase">Proposta de Valor</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white group-hover:text-goianita-gold transition-colors font-serif">Proposta de Valor</h3>
+                    <p class="text-xs text-goianita-muted leading-relaxed">
+                        Conveniência <em>full-service</em> e risco zero para consignadores. Garimpo premium e curadoria boutique para compradores.
+                    </p>
+                </div>
+                <div class="mt-4 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-goianita-gold font-medium">
+                    <span>Ver detalhes</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"></i>
+                </div>
+            </div>
+
+            <!-- RELACIONAMENTO COM CLIENTES (CR) - Row 1, Col 4 -->
+            <div class="glass-card rounded-xl p-5 lg:col-span-1 lg:row-span-1 flex flex-col justify-between cursor-pointer group" onclick="openDetails('cr')">
+                <div class="space-y-3">
+                    <div class="flex justify-between items-start">
+                        <div class="p-2.5 bg-goianita-accent/10 rounded-lg text-goianita-accent group-hover:bg-goianita-accent/20 transition-all">
+                            <i data-lucide="heart" class="w-5 h-5"></i>
+                        </div>
+                        <span class="text-xs text-goianita-muted font-bold tracking-wider uppercase">Relacionamento</span>
+                    </div>
+                    <h3 class="text-base font-bold text-white group-hover:text-goianita-accent transition-colors">Relacionamento</h3>
+                    <p class="text-xs text-goianita-muted leading-relaxed">
+                        Atendimento consultivo fígital e cross-sell com bônus de crédito.
+                    </p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs text-goianita-accent font-medium">
+                    <span>Ver detalhes</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"></i>
+                </div>
+            </div>
+
+            <!-- CANAIS (CH) - Row 2, Col 4 -->
+            <div class="glass-card rounded-xl p-5 lg:col-span-1 lg:row-span-1 flex flex-col justify-between cursor-pointer group" onclick="openDetails('ch')">
+                <div class="space-y-3">
+                    <div class="flex justify-between items-start">
+                        <div class="p-2.5 bg-goianita-accent/10 rounded-lg text-goianita-accent group-hover:bg-goianita-accent/20 transition-all">
+                            <i data-lucide="send" class="w-5 h-5"></i>
+                        </div>
+                        <span class="text-xs text-goianita-muted font-bold tracking-wider uppercase">Canais</span>
+                    </div>
+                    <h3 class="text-base font-bold text-white group-hover:text-goianita-accent transition-colors">Canais</h3>
+                    <p class="text-xs text-goianita-muted leading-relaxed">
+                        Showroom Loja 85, WhatsApp e integração com Olist.
+                    </p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs text-goianita-accent font-medium">
+                    <span>Ver detalhes</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"></i>
+                </div>
+            </div>
+
+            <!-- SEGMENTOS DE CLIENTES (CS) - Row 1 & 2, Col 5 -->
+            <div class="glass-card rounded-xl p-5 lg:col-span-1 lg:row-span-2 flex flex-col justify-between cursor-pointer group" onclick="openDetails('cs')">
+                <div class="space-y-4">
+                    <div class="flex justify-between items-start">
+                        <div class="p-2.5 bg-goianita-accent/10 rounded-lg text-goianita-accent group-hover:bg-goianita-accent/20 transition-all">
+                            <i data-lucide="users" class="w-5 h-5"></i>
+                        </div>
+                        <span class="text-xs text-goianita-muted font-bold tracking-wider uppercase">Segmentos</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white group-hover:text-goianita-accent transition-colors">Segmentos</h3>
+                    <p class="text-xs text-goianita-muted leading-relaxed">
+                        Consignadores (moradores condomínios e noivas) e Compradores de luxo acessível e B2B de gastronomia.
+                    </p>
+                </div>
+                <div class="mt-4 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-goianita-accent font-medium">
+                    <span>Ver detalhes</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"></i>
+                </div>
+            </div>
+
+            <!-- ESTRUTURA DE CUSTOS (CO) - Row 3, Col 1 & 2 & 2.5 -->
+            <div class="glass-card rounded-xl p-5 lg:col-span-2 flex flex-col justify-between cursor-pointer group" onclick="openDetails('co')">
+                <div class="space-y-3">
+                    <div class="flex justify-between items-start">
+                        <div class="p-2.5 bg-goianita-accent/10 rounded-lg text-goianita-accent group-hover:bg-goianita-accent/20 transition-all">
+                            <i data-lucide="trending-down" class="w-5 h-5"></i>
+                        </div>
+                        <span class="text-xs text-goianita-muted font-bold tracking-wider uppercase">Estrutura de Custos</span>
+                    </div>
+                    <h3 class="text-base font-bold text-white group-hover:text-goianita-accent transition-colors">Estrutura de Custos</h3>
+                    <p class="text-xs text-goianita-muted leading-relaxed">
+                        CAPEX de estoque zero (consignado puro), equipe dedicada à triagem, licenciamento de ERP/IA e campanhas de captação local.
+                    </p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs text-goianita-accent font-medium">
+                    <span>Ver detalhes</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"></i>
+                </div>
+            </div>
+
+            <!-- FONTES DE RECEITA (RE) - Row 3, Col 3 & 4 & 5 -->
+            <div class="glass-card rounded-xl p-5 lg:col-span-3 flex flex-col justify-between cursor-pointer group border-goianita-accent/20 hover:border-goianita-accent/40" onclick="openDetails('re')">
+                <div class="space-y-3">
+                    <div class="flex justify-between items-start">
+                        <div class="p-2.5 bg-goianita-accent/10 rounded-lg text-goianita-accent group-hover:bg-goianita-accent/20 transition-all">
+                            <i data-lucide="wallet" class="w-5 h-5"></i>
+                        </div>
+                        <span class="text-xs text-goianita-muted font-bold tracking-wider uppercase">Fontes de Receita</span>
+                    </div>
+                    <h3 class="text-base font-bold text-white group-hover:text-goianita-accent transition-colors">Fontes de Receita</h3>
+                    <p class="text-xs text-goianita-muted leading-relaxed">
+                        Comissão de consignação (*Take Rate* de 50%-60%), taxas de saque financeiro, margem B2B de maquinário e retenção de saldo via créditos de loja (+20% incentivo).
+                    </p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs text-goianita-accent font-medium">
+                    <span>Ver detalhes</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"></i>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Interactive Financial Simulator -->
+        <section class="glass-card rounded-2xl p-6 lg:p-8 space-y-8 border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.4)]">
+            <div class="flex items-center gap-3">
+                <div class="p-3 bg-goianita-gold/10 rounded-xl text-goianita-gold border border-goianita-gold/20">
+                    <i data-lucide="calculator" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h2 class="text-xl lg:text-2xl font-bold text-white font-sans">Simulador Financeiro: Novo de Novo</h2>
+                    <p class="text-xs text-goianita-muted">Simule o faturamento, taxa de comissão e a retenção de caixa no ecossistema da Goianita.</p>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8">
+                <!-- Inputs / Sliders -->
+                <div class="lg:col-span-6 space-y-6">
+                    <!-- Slider 1 -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-white font-medium">Quantidade de Itens Vendidos / Mês</span>
+                            <span class="text-goianita-accent font-bold" id="val-vendas">500</span>
+                        </div>
+                        <input type="range" min="100" max="3000" step="50" value="500" class="w-full h-1.5 bg-goianita-dark rounded-lg appearance-none cursor-pointer accent-goianita-accent" id="slider-vendas" oninput="updateSim()">
+                        <div class="flex justify-between text-[10px] text-goianita-muted">
+                            <span>100</span>
+                            <span>3.000</span>
+                        </div>
+                    </div>
+
+                    <!-- Slider 2 -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-white font-medium">Valor Médio do Item (Usado)</span>
+                            <span class="text-goianita-accent font-bold" id="val-preco">R$ 150</span>
+                        </div>
+                        <input type="range" min="30" max="1500" step="10" value="150" class="w-full h-1.5 bg-goianita-dark rounded-lg appearance-none cursor-pointer accent-goianita-accent" id="slider-preco" oninput="updateSim()">
+                        <div class="flex justify-between text-[10px] text-goianita-muted">
+                            <span>R$ 30</span>
+                            <span>R$ 1.500</span>
+                        </div>
+                    </div>
+
+                    <!-- Slider 3 -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-white font-medium">Comissão da Loja (Take Rate)</span>
+                            <span class="text-goianita-accent font-bold" id="val-comissao">50%</span>
+                        </div>
+                        <input type="range" min="30" max="70" step="5" value="50" class="w-full h-1.5 bg-goianita-dark rounded-lg appearance-none cursor-pointer accent-goianita-accent" id="slider-comissao" oninput="updateSim()">
+                        <div class="flex justify-between text-[10px] text-goianita-muted">
+                            <span>30%</span>
+                            <span>70%</span>
+                        </div>
+                    </div>
+
+                    <!-- Slider 4 -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-white font-medium">Conversão de Saldo em Crédito da Loja</span>
+                            <span class="text-goianita-gold font-bold" id="val-conversao">30%</span>
+                        </div>
+                        <input type="range" min="10" max="80" step="5" value="30" class="w-full h-1.5 bg-goianita-dark rounded-lg appearance-none cursor-pointer accent-goianita-gold" id="slider-conversao" oninput="updateSim()">
+                        <div class="flex justify-between text-[10px] text-goianita-muted font-mono">
+                            <span>10% (Baixa adesão)</span>
+                            <span>80% (Campanha agressiva)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Simulation Outputs -->
+                <div class="lg:col-span-6 bg-goianita-dark/60 rounded-xl p-6 border border-white/5 flex flex-col justify-between gap-6">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-4 bg-white/5 rounded-lg border border-white/5">
+                            <span class="text-[10px] text-goianita-muted uppercase tracking-wider block mb-1">GMV Total Transacionado</span>
+                            <span class="text-xl font-bold text-white" id="out-gmv">R$ 75.000</span>
+                        </div>
+                        <div class="p-4 bg-goianita-accent/5 rounded-lg border border-goianita-accent/10">
+                            <span class="text-[10px] text-goianita-accent uppercase tracking-wider block mb-1">Receita Goianita (Comissão)</span>
+                            <span class="text-xl font-bold text-goianita-accent" id="out-receita">R$ 37.500</span>
+                        </div>
+                        <div class="p-4 bg-white/5 rounded-lg border border-white/5">
+                            <span class="text-[10px] text-goianita-muted uppercase tracking-wider block mb-1">Repasse Consignantes (Pix)</span>
+                            <span class="text-lg font-bold text-white" id="out-repasse">R$ 26.250</span>
+                        </div>
+                        <div class="p-4 bg-goianita-gold/5 rounded-lg border border-goianita-gold/10">
+                            <span class="text-[10px] text-goianita-gold uppercase tracking-wider block mb-1">Valor Retido em Crédito</span>
+                            <span class="text-lg font-bold text-goianita-gold" id="out-creditos">R$ 11.250</span>
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-white/5 rounded-lg border-l-4 border-goianita-accent flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-goianita-muted block">Retorno Adicional Esperado em Venda de Novos*</span>
+                            <span class="text-sm font-semibold text-white">Com bônus de 20% aplicado ao crédito convertido.</span>
+                        </div>
+                        <span class="text-lg font-extrabold text-goianita-accent" id="out-novas-vendas">R$ 13.500</span>
+                    </div>
+
+                    <div class="text-[10px] text-goianita-muted leading-relaxed">
+                        * O valor retido em créditos é convertido em compras diretas de produtos novos na Goianita, gerando margem adicional média de 40% a 50% sobre os novos itens e estimulando o fluxo de loja física (cross-sell).
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Side Detail Panel (Modal Backdrop) -->
+    <div class="fixed inset-0 bg-goianita-dark/80 backdrop-blur-sm z-50 flex justify-end opacity-0 pointer-events-none transition-all duration-300" id="detail-backdrop" onclick="closeDetails()">
+        <!-- Panel Container -->
+        <div class="w-full max-w-xl h-full bg-goianita-dark border-l border-goianita-border p-6 lg:p-8 flex flex-col justify-between transform translate-x-full transition-transform duration-300 relative shadow-2xl" id="detail-panel" onclick="event.stopPropagation()">
+            
+            <button class="absolute top-6 right-6 p-2 rounded-full hover:bg-white/5 text-goianita-muted hover:text-white transition-colors" onclick="closeDetails()">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <div class="flex-1 overflow-y-auto custom-scrollbar pr-2 space-y-6 mt-8">
+                <div class="flex items-center gap-3">
+                    <div class="p-3 bg-goianita-accent/10 rounded-xl text-goianita-accent" id="panel-icon-container">
+                        <i data-lucide="help-circle" class="w-6 h-6" id="panel-icon"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs text-goianita-muted font-bold tracking-widest uppercase block">BLOCO DO CANVAS</span>
+                        <h2 class="text-2xl font-bold text-white font-sans" id="panel-title">Título do Bloco</h2>
+                    </div>
+                </div>
+
+                <div class="space-y-4 pt-4">
+                    <h4 class="text-xs text-goianita-muted font-bold tracking-wider uppercase">Descrição Operacional</h4>
+                    <p class="text-sm text-goianita-muted leading-relaxed" id="panel-desc">
+                        Descrição detalhada operacional.
+                    </p>
+                </div>
+
+                <div class="space-y-4 pt-4">
+                    <h4 class="text-xs text-goianita-muted font-bold tracking-wider uppercase">Principais Itens e Ações</h4>
+                    <ul class="space-y-3 text-sm" id="panel-bullets">
+                        <!-- Bullet list injection -->
+                    </ul>
+                </div>
+
+                <div class="p-4 bg-goianita-accent/5 rounded-xl border border-goianita-accent/15 space-y-2" id="panel-tax-highlight">
+                    <div class="flex items-center gap-2 text-goianita-accent font-semibold text-xs">
+                        <i data-lucide="alert-circle" class="w-4 h-4"></i>
+                        <span>PONTO CRÍTICO & FISCAL</span>
+                    </div>
+                    <p class="text-xs text-goianita-muted leading-relaxed" id="panel-tax-desc">
+                        Informações tributárias importantes.
+                    </p>
+                </div>
+            </div>
+
+            <div class="pt-6 border-t border-white/5 flex items-center justify-between text-xs text-goianita-muted">
+                <span>Clique fora para fechar</span>
+                <button class="px-4 py-2 bg-white/5 hover:bg-white/10 text-white rounded-lg transition-colors" onclick="closeDetails()">Fechar Painel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center py-12 border-t border-goianita-border mt-16 max-w-7xl mx-auto px-6">
+        <p class="text-xs text-goianita-muted">© 2026 Live Consultoria Comercial & Estruturação Societária. Todos os direitos reservados. Documento Confidencial Casas Goianita.</p>
+    </footer>
+
+    <!-- JS Logic -->
+    <script>
+        lucide.createIcons();
+
+        // Data dictionary for BMC blocks
+        const bmcData = {
+            kp: {
+                title: "Parcerias-Chave (Key Partnerships)",
+                icon: "handshake",
+                desc: "Parcerias cruciais para viabilizar captação de mercadorias qualificadas com baixo custo de marketing e garantir viabilidade tecnológica e contábil.",
+                bullets: [
+                    "<strong>Personal Organizers:</strong> Captadores terceirizados trabalhando em residências de alto padrão (ex: Jardins). Eles recebem uma porcentagem sobre os itens vendidos dos clientes indicados.",
+                    "<strong>Architectos e Designers:</strong> Parceiros estratégicos em reformas residenciais, recomendando o desapego ou substituição de decoração e aparelhos de mesa.",
+                    "<strong>Sebrae Local:</strong> Subsídio estratégico de 70% no desenvolvimento do sistema e aplicativo de catalogação de consignados.",
+                    "<strong>Amiga do Peça Rara (Benchmark):</strong> Relacionamento próximo para compartilhar experiências fiscais, contábeis e processos operacionais de controle de consignantes.",
+                    "<strong>Entidades Beneficentes:</strong> Parceiros (ex: Instituto Eu Sou Peça Rara) para destinação de mercadorias abandonadas (não retiradas após 30 dias do fim do contrato)."
+                ],
+                tax: "A captação via parceiros (como personal organizers) deve ser registrada sem vínculo trabalhista, através de comissionamento regulado por contrato de parceria comercial ou indicação."
+            },
+            ka: {
+                title: "Atividades-Chave (Key Activities)",
+                icon: "activity",
+                desc: "Ações contínuas operacionais cruciais para que o fluxo de re-commerce seja fluido, seguro e rentável.",
+                bullets: [
+                    "<strong>Triagem e Curadoria:</strong> Filtro cirúrgico do que entra na loja física, mantendo apenas itens em excelente estado para preservar a imagem premium da marca.",
+                    "<strong>Higienização e Cadastro:</strong> Preparação das peças e registro no ERP com prefixos específicos (ex: código <code>USU-XXXX</code>).",
+                    "<strong>Precificação Inteligente:</strong> Varredura digital assistida por IA para buscar os preços reais de mercado do produto novo e aplicar a depreciação justa de usado (~50%).",
+                    "<strong>Visual Merchandising Premium:</strong> Exposição sofisticada em espaço reservado na Loja 85 (evitando o visual desorganizado de bazares comuns).",
+                    "<strong>Reconciliação Contábil e Payout:</strong> Gestão e apuração mensal dos saldos de dezenas de consignadores para liberação de saques."
+                ],
+                tax: "A parametrização do faturamento exige automatização sistêmica para emissão automática de Notas de Entrada e Faturamento, evitando retrabalho contábil da equipe."
+            },
+            kr: {
+                title: "Recursos-Chave (Key Resources)",
+                icon: "boxes",
+                desc: "Os ativos mais importantes da Goianita que dão suporte, escalabilidade e barreira de entrada contra concorrentes.",
+                bullets: [
+                    "<strong>71 Anos de Credibilidade da Marca:</strong> Confiança gerada nos clientes finais e nos consignantes, que sabem que suas peças estão seguras.",
+                    "<strong>Showroom Físico Consolidado:</strong> Localização premium (Loja das Porcelanas na Rua 85) que atua como ponto de coleta (drop point) e vitrine física.",
+                    "<strong>Software Integrado (ERP + IA):</strong> Ferramentas criadas para gerenciar consignados e precificar com dados em tempo real da web.",
+                    "<strong>Base de Clientes B2B Gastronomia:</strong> Rede de contatos existente com bares, restaurantes e noivas, reduzindo a necessidade de marketing digital massivo."
+                ],
+                tax: "O investimento tecnológico (desenvolvimento de IA e integrações com Olist) reduz custos operacionais futuros e protege as margens em escala."
+            },
+            vp: {
+                title: "Proposta de Valor (Value Propositions)",
+                icon: "award",
+                desc: "Os pacotes de produtos e serviços que agregam valor e resolvem problemas específicos de cada segmento de cliente.",
+                bullets: [
+                    "<strong>Para Consignantes (Vendedores):</strong> Conveniência absoluta (triagem, fotografia, venda física, cobrança e entrega por conta da Goianita), risco zero e transparência financeira de saldos.",
+                    "<strong>Para Compradores (Consumidores):</strong> Acesso a utilidades e decorações premium, com autenticidade de marcas conhecidas e preços 50% abaixo de mercado, dentro de uma experiência física luxuosa.",
+                    "<strong>Para o Ecossistema (Cross-sell):</strong> Facilidade de reverter dinheiro parado nos armários in novas compras direto na loja tradicional da Goianita, com incentivo de bônus."
+                ],
+                tax: "A proposta de valor é reforçada pela tributação reduzida do serviço: a comissão (take rate) retida pela Goianita é taxada apenas sobre o serviço prestado, não sobre o bem usado do cliente."
+            },
+            cr: {
+                title: "Relacionamento (Customer Relationships)",
+                icon: "heart",
+                desc: "Como a Goianita interage e constrói fidelidade com consignadores e compradores.",
+                bullets: [
+                    "<strong>Atendimento Fígital:</strong> Agendamento e suporte via WhatsApp, combinando com o acolhimento presencial na triagem de peças.",
+                    "<strong>Transparência Financeira:</strong> Portal online simples ou consulta rápida no caixa via CPF para verificar o status e o saldo disponível para saque.",
+                    "<strong>Incentivo ao Crédito Local:</strong> Gamificação e campanhas oferecendo 20% adicionais caso o cliente opte por comprar novos itens da Goianita ao invés de sacar em dinheiro."
+                ],
+                tax: "O saldo convertido em crédito comercial não sofre tributação de saída financeira direta (Pix), melhorando o fluxo de caixa consolidado da empresa."
+            },
+            ch: {
+                title: "Canais (Channels)",
+                icon: "send",
+                desc: "Os pontos de contato e vendas por onde a Goianita distribui e entrega valor ao mercado.",
+                bullets: [
+                    "<strong>Showroom Premium (Físico):</strong> Seção dedicada e decorada na loja da Rua 85.",
+                    "<strong>WhatsApp Business:</strong> Listas de transmissão locais para condomínios residenciais e bares cadastrados.",
+                    "<strong>Marketplace Mercado Livre (via Olist):</strong> Canal digital específico para escoar eletrônicos de cozinha usados e maquinários B2B.",
+                    "<strong>Vendas B2B Diretas:</strong> Contato direto por consultores com hotéis, motéis, bares e restaurantes antigos."
+                ],
+                tax: "A integração multicanal via Olist no CNPJ Simples Nacional otimiza as vendas digitais, evitando as barreiras fiscais de DIFAL de e-commerce."
+            },
+            cs: {
+                title: "Segmentos de Clientes (Customer Segments)",
+                icon: "users",
+                desc: "Os perfis específicos de pessoas ou empresas que a Goianita pretende atender.",
+                bullets: [
+                    "<strong>Consignadores Premium:</strong> Proprietários de residências em condomínios de Goiânia com utensílios e decorações de alto padrão sem uso.",
+                    "<strong>Noivas:</strong> Noivas do ecossistema tradicional da Goianita que desejam trocar presentes repetidos por saldo/dinheiro.",
+                    "<strong>Compradores Gourmet / Garimpo:</strong> Entusiastas de mesa posta e culinária que buscam marcas famosas (Riva, Porto Brasil) a preços competitivos.",
+                    "<strong>B2B Usados:</strong> Pequenos bares, cafeterias e restaurantes novos que buscam pratos, copos e maquinário industrial seminovos para reduzir custos."
+                ],
+                tax: "A segmentação B2B permite estruturar vendas com Notas de Serviço ou Comercialização de Usados com regimes tributários específicos de isenção ou base de cálculo reduzida."
+            },
+            co: {
+                title: "Estrutura de Custos (Cost Structure)",
+                icon: "trending-down",
+                desc: "As despesas mais expressivas que a operação de re-commerce demandará para funcionar e crescer.",
+                bullets: [
+                    "<strong>CAPEX de Estoque Reduzido:</strong> Risco financeiro nulo. Todo o estoque de usados permanece sob propriedade do consignante até a venda efetiva.",
+                    "<strong>Custos Operacionais de Pessoal:</strong> Mão de obra focada em curadoria, triagem técnica, higienização e precificação.",
+                    "<strong>Tecnologia e ERP:</strong> Custos de licenciamento do Lich/Olist e suporte técnico de automações com IA.",
+                    "<strong>Marketing de Captação Local:</strong> Investimento em materiais de divulgação e ações direcionadas para condomínios locais."
+                ],
+                tax: "Manter o estoque consignado permite deduzir impostos de inventário parado e reduz o risco tributário de desvalorização de mercadorias no balanço patrimonial."
+            },
+            re: {
+                title: "Fontes de Receita (Revenue Streams)",
+                icon: "wallet",
+                desc: "Como a Goianita captura valor monetário a partir do serviço prestado.",
+                bullets: [
+                    "<strong>Take Rate de Consignação:</strong> Retenção de 50% a 60% sobre o preço final de venda da mercadoria usada.",
+                    "<strong>Margem Comercial B2B:</strong> Margens de 40%+ sobre intermediação/compra de equipamentos e maquinários de restaurantes em lote.",
+                    "<strong>Caixa no Ecossistema (Crédito Interno):</strong> Retenção da receita dentro da rede através da conversão de saldo de usados in novos produtos da Goianita.",
+                    "<strong>Taxas de Saque:</strong> Pequenas taxas administrativas para resgate em Pix dos valores acumulados."
+                ],
+                tax: "A margem de Take Rate deve ser estruturada como prestação de serviço de intermediação comercial, pagando ISSQN ao invés de ICMS sobre a venda mercantil bruta."
+            }
+        };
+
+        // Modal triggers
+        function openDetails(key) {
+            const data = bmcData[key];
+            if (!data) return;
+
+            // Highlight active grid card
+            document.querySelectorAll('#bmc-container > div').forEach(c => c.classList.remove('glass-card-active'));
+            event.currentTarget.classList.add('glass-card-active');
+
+            // Populate panel
+            document.getElementById('panel-title').innerText = data.title;
+            document.getElementById('panel-desc').innerHTML = data.desc;
+            document.getElementById('panel-tax-desc').innerHTML = data.tax;
+
+            // Update Panel Icon and Colors based on key (VP is gold, others are green)
+            const iconContainer = document.getElementById('panel-icon-container');
+            const bulletsContainer = document.getElementById('panel-bullets');
+            bulletsContainer.innerHTML = '';
+
+            // Map keys to icons
+            let iconName = "help-circle";
+            if (key === 'kp') iconName = "handshake";
+            if (key === 'ka') iconName = "activity";
+            if (key === 'kr') iconName = "boxes";
+            if (key === 'vp') iconName = "award";
+            if (key === 'cr') iconName = "heart";
+            if (key === 'ch') iconName = "send";
+            if (key === 'cs') iconName = "users";
+            if (key === 'co') iconName = "trending-down";
+            if (key === 're') iconName = "wallet";
+
+            iconContainer.innerHTML = `<i data-lucide="${iconName}" class="w-6 h-6"></i>`;
+            
+            if (key === 'vp') {
+                iconContainer.className = "p-3 bg-goianita-gold/10 rounded-xl text-goianita-gold border border-goianita-gold/20";
+            } else {
+                iconContainer.className = "p-3 bg-goianita-accent/10 rounded-xl text-goianita-accent border border-goianita-accent/20";
+            }
+
+            // Populate Bullets
+            data.bullets.forEach(b => {
+                const li = document.createElement('li');
+                li.className = "flex items-start gap-2.5 text-goianita-muted";
+                li.innerHTML = `
+                    <span class="w-1.5 h-1.5 rounded-full ${key === 'vp' ? 'bg-goianita-gold' : 'bg-goianita-accent'} mt-2 shrink-0"></span>
+                    <span>${b}</span>
+                `;
+                bulletsContainer.appendChild(li);
+            });
+
+            lucide.createIcons();
+
+            // Slide in panel
+            const backdrop = document.getElementById('detail-backdrop');
+            const panel = document.getElementById('detail-panel');
+            
+            backdrop.classList.remove('pointer-events-none', 'opacity-0');
+            backdrop.classList.add('opacity-100');
+            panel.classList.remove('translate-x-full');
+        }
+
+        function closeDetails() {
+            const backdrop = document.getElementById('detail-backdrop');
+            const panel = document.getElementById('detail-panel');
+            
+            backdrop.classList.add('pointer-events-none', 'opacity-0');
+            backdrop.classList.remove('opacity-100');
+            panel.classList.add('translate-x-full');
+
+            // Remove grid highlights
+            document.querySelectorAll('#bmc-container > div').forEach(c => c.classList.remove('glass-card-active'));
+        }
+
+        // Financial Simulator Calculations
+        function updateSim() {
+            const vendas = parseInt(document.getElementById('slider-vendas').value);
+            const preco = parseFloat(document.getElementById('slider-preco').value);
+            const comissao = parseFloat(document.getElementById('slider-comissao').value) / 100;
+            const conversao = parseFloat(document.getElementById('slider-conversao').value) / 100;
+
+            // Updates sliders texts
+            document.getElementById('val-vendas').innerText = vendas.toLocaleString('pt-BR');
+            document.getElementById('val-preco').innerText = `R$ ${preco.toLocaleString('pt-BR')}`;
+            document.getElementById('val-comissao').innerText = `${(comissao * 100)}%`;
+            document.getElementById('val-conversao').innerText = `${(conversao * 100)}%`;
+
+            // Core Math
+            const gmv = vendas * preco;
+            const receitaGoianita = gmv * comissao;
+            const repasseConsignanteTotal = gmv - receitaGoianita;
+
+            // Of the repasse, what % is converted into store credit vs what is withdrawn (cash/pix)
+            const creditosConvertidos = repasseConsignanteTotal * conversao;
+            const repassePagoPix = repasseConsignanteTotal - creditosConvertidos;
+
+            // For credits, the Goianita gives +20% bonus (credit balance in store)
+            const creditoRealNaLoja = creditosConvertidos * 1.2; 
+            
+            // Expected sales from credit usage (usually matching the balance plus extra spending)
+            // Assuming customer spends at least the balance. We project the direct new sales from credits.
+            const novasVendasNovos = creditoRealNaLoja;
+
+            // UI Inject
+            document.getElementById('out-gmv').innerText = `R$ ${gmv.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}`;
+            document.getElementById('out-receita').innerText = `R$ ${receitaGoianita.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}`;
+            document.getElementById('out-repasse').innerText = `R$ ${repassePagoPix.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}`;
+            document.getElementById('out-creditos').innerText = `R$ ${creditosConvertidos.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}`;
+            document.getElementById('out-novas-vendas').innerText = `R$ ${novasVendasNovos.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}`;
+        }
+
+        // Init simulation on load
+        window.addEventListener('DOMContentLoaded', () => {
+            updateSim();
+        });
+    </script>
+</body>
+</html>
