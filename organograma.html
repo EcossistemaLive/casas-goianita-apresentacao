@@ -149,79 +149,81 @@
             <!-- Organograma Interativo -->
             <div class="flex flex-col items-center">
                 
-                <!-- Nível 1: Presidência -->
+                <!-- Nível 1: Conselho Consultivo -->
                 <div class="flex flex-col items-center">
-                    <a href="#cargo-presidencia" class="glass-card p-6 w-80 text-center border-live-accent shadow-neon hover:scale-105 transform">
+                    <div class="glass-card p-6 w-[30rem] text-center border-live-accent/80 shadow-neon">
                         <i data-lucide="shield" class="text-live-accent w-8 h-8 mx-auto mb-2"></i>
-                        <h3 class="text-lg font-bold text-white">Presidência / Conselho</h3>
-                        <p class="text-xs text-live-accent font-semibold tracking-wider uppercase mt-1">Carlos Alberto Alvarenga Filho</p>
-                        <p class="text-[10px] text-live-muted mt-2">Visão Estratégica, Governança & Contratos de Comodato</p>
-                    </a>
+                        <h3 class="text-lg font-bold text-white font-serif">Conselho Consultivo</h3>
+                        <p class="text-xs text-live-muted mt-1 leading-relaxed">Caráter estritamente consultivo. Sem direito a voto e sem poder executivo operacional.</p>
+                        <div class="grid grid-cols-2 gap-4 mt-4 pt-4 border-t border-live-border">
+                            <div>
+                                <p class="text-xs text-live-accent font-semibold uppercase">Presidente</p>
+                                <p class="text-sm text-white font-medium mt-0.5">Carlos Alberto A. Filho</p>
+                            </div>
+                            <div>
+                                <p class="text-xs text-live-accent font-semibold uppercase">Conselheira</p>
+                                <p class="text-sm text-white font-medium mt-0.5">Silvana</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Linha Conectora 1 -->
-                <div class="tree-line-vertical h-12"></div>
+                <div class="tree-line-vertical h-10"></div>
 
-                <!-- Nível 2: Diretorias -->
-                <div class="grid md:grid-cols-3 gap-8 w-full max-w-5xl relative">
+                <!-- Nível 2: Diretoria Executiva -->
+                <div class="text-center">
+                    <span class="px-4 py-1.5 bg-live-accent-dim text-live-accent text-xs rounded-full font-semibold uppercase tracking-wider shadow-neon">Diretoria Executiva (Poder de Voto & Execução)</span>
+                </div>
+                <div class="tree-line-vertical h-6"></div>
+
+                <!-- Nível 3: Diretorias -->
+                <div class="grid md:grid-cols-4 gap-6 w-full max-w-6xl relative">
                     <!-- Conector Horizontal para telas grandes -->
-                    <div class="absolute top-0 left-1/6 right-1/6 tree-line-horizontal hidden md:block" style="left: 16%; right: 16%;"></div>
+                    <div class="absolute top-0 left-[12.5%] right-[12.5%] tree-line-horizontal hidden md:block" style="left: 12.5%; right: 12.5%;"></div>
                     
-                    <!-- Diretoria Comercial -->
+                    <!-- Diretoria Comercial & Marketing -->
                     <div class="flex flex-col items-center pt-6 relative">
                         <div class="tree-line-vertical h-6 absolute top-0 md:block hidden"></div>
-                        <a href="#cargo-comercial" class="glass-card p-5 w-72 text-center hover:scale-105 transform border border-white/10">
-                            <i data-lucide="trending-up" class="text-live-accent w-6 h-6 mx-auto mb-2"></i>
-                            <h4 class="text-md font-bold text-white">Diretoria Comercial & Mkt</h4>
+                        <a href="#cargo-comercial" class="glass-card p-4 w-60 text-center hover:scale-105 transform border border-white/10">
+                            <i data-lucide="trending-up" class="text-live-accent w-5 h-5 mx-auto mb-2"></i>
+                            <h4 class="text-sm font-bold text-white">Diretoria Comercial</h4>
                             <p class="text-xs text-live-accent font-semibold uppercase mt-0.5">Cláudia Meirelles</p>
-                            <p class="text-[10px] text-live-muted mt-2">B2C (Lista Fígital), B2B, Marketing e Vendas E-commerce (Castor)</p>
+                            <p class="text-[10px] text-live-muted mt-2">B2C (Lista Fígital), B2B, Marketing e Vendas E-commerce</p>
                         </a>
-                        <div class="tree-line-vertical h-8"></div>
-                        <!-- Gerência de Compras abaixo da Cláudia -->
-                        <a href="#cargo-compras" class="glass-card p-4 w-64 text-center border border-white/5 bg-live-deep/40">
-                            <i data-lucide="package" class="text-live-accent w-5 h-5 mx-auto mb-1"></i>
-                            <h5 class="text-sm font-semibold text-white">Gerência de Supply Chain</h5>
-                            <p class="text-xs text-live-muted">Carlos Filho (Curuca)</p>
-                            <p class="text-[10px] text-live-accent mt-1">Compras baseadas em ERP & Giro</p>
+                    </div>
+
+                    <!-- Diretoria de Supply Chain / Compras -->
+                    <div class="flex flex-col items-center pt-6 relative">
+                        <div class="tree-line-vertical h-6 absolute top-0 md:block hidden"></div>
+                        <a href="#cargo-compras" class="glass-card p-4 w-60 text-center hover:scale-105 transform border border-white/10">
+                            <i data-lucide="package" class="text-live-accent w-5 h-5 mx-auto mb-2"></i>
+                            <h4 class="text-sm font-bold text-white">Diretoria de Supply Chain</h4>
+                            <p class="text-xs text-live-accent font-semibold uppercase mt-0.5">Carlos Filho (Curuca)</p>
+                            <p class="text-[10px] text-live-muted mt-2">Negociações, Compras ERP, Curva ABC & Depósito</p>
                         </a>
                     </div>
 
                     <!-- Diretoria de Operações -->
                     <div class="flex flex-col items-center pt-6 relative">
                         <div class="tree-line-vertical h-6 absolute top-0 md:block hidden"></div>
-                        <a href="#cargo-operacoes" class="glass-card p-5 w-72 text-center hover:scale-105 transform border border-white/10">
-                            <i data-lucide="settings" class="text-live-accent w-6 h-6 mx-auto mb-2"></i>
-                            <h4 class="text-md font-bold text-white">Diretoria de Operações</h4>
-                            <p class="text-xs text-live-accent font-semibold uppercase mt-0.5">Silvana</p>
+                        <a href="#cargo-operacoes" class="glass-card p-4 w-60 text-center hover:scale-105 transform border border-white/10">
+                            <i data-lucide="settings" class="text-live-accent w-5 h-5 mx-auto mb-2"></i>
+                            <h4 class="text-sm font-bold text-white">Diretoria de Operações</h4>
+                            <p class="text-xs text-live-accent font-semibold uppercase mt-0.5">Elber</p>
                             <p class="text-[10px] text-live-muted mt-2">Lojas Físicas, VM, ReCommerce ("Novo de Novo") e Logística</p>
                         </a>
-                        <div class="tree-line-vertical h-8"></div>
-                        <!-- Gerentes de Loja abaixo da Silvana -->
-                        <div class="glass-card p-4 w-64 text-center border border-white/5 bg-live-deep/40">
-                            <i data-lucide="store" class="text-live-accent w-5 h-5 mx-auto mb-1"></i>
-                            <h5 class="text-sm font-semibold text-white">Gerência das Lojas</h5>
-                            <p class="text-xs text-live-muted">Elber / Fabrício</p>
-                            <p class="text-[10px] text-live-accent mt-1">Lojas Físicas & Central de Trocas</p>
-                        </div>
                     </div>
 
                     <!-- Diretoria Financeira -->
                     <div class="flex flex-col items-center pt-6 relative">
                         <div class="tree-line-vertical h-6 absolute top-0 md:block hidden"></div>
-                        <a href="#cargo-financeiro" class="glass-card p-5 w-72 text-center hover:scale-105 transform border border-white/10">
-                            <i data-lucide="wallet" class="text-live-accent w-6 h-6 mx-auto mb-2"></i>
-                            <h4 class="text-md font-bold text-white">Diretoria Financeira</h4>
-                            <p class="text-xs text-live-accent font-semibold uppercase mt-0.5">CFO / Controller</p>
-                            <p class="text-[10px] text-live-muted mt-2">DRE, DFC, Controle Tributário TARI e Payouts de Consignação</p>
+                        <a href="#cargo-financeiro" class="glass-card p-4 w-60 text-center hover:scale-105 transform border border-white/10">
+                            <i data-lucide="wallet" class="text-live-accent w-5 h-5 mx-auto mb-2"></i>
+                            <h4 class="text-sm font-bold text-white">Diretoria Financeira</h4>
+                            <p class="text-xs text-live-accent font-semibold uppercase mt-0.5">Matheus</p>
+                            <p class="text-[10px] text-live-muted mt-2">Voz e Decisão Financeira, DRE/DFC, TI, RH e TARI</p>
                         </a>
-                        <div class="tree-line-vertical h-8"></div>
-                        <!-- Equipe Financeira abaixo do CFO -->
-                        <div class="glass-card p-4 w-64 text-center border border-white/5 bg-live-deep/40">
-                            <i data-lucide="users" class="text-live-accent w-5 h-5 mx-auto mb-1"></i>
-                            <h5 class="text-sm font-semibold text-white">Retaguarda & TI</h5>
-                            <p class="text-xs text-live-muted">Érica (Fin) / Leila (RH)</p>
-                            <p class="text-[10px] text-live-accent mt-1">Conciliação Sistêmica & Ponto</p>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -235,30 +237,28 @@
             </h2>
 
             <div class="space-y-6">
-                <!-- Card Presidência -->
-                <div class="glass-card p-8 border-l-4 border-live-accent" id="cargo-presidencia">
+                <!-- Card Conselho -->
+                <div class="glass-card p-8 border-l-4 border-yellow-500" id="cargo-conselho">
                     <div class="flex justify-between items-start">
                         <div>
-                            <span class="px-3 py-1 bg-live-accent-dim text-live-accent text-xs rounded-full font-semibold uppercase tracking-wider">Governança & Estratégia</span>
-                            <h3 class="text-2xl font-bold text-white mt-3">Presidência / Conselho Gestor</h3>
-                            <p class="text-sm text-live-muted">Carlos Alberto Alvarenga Filho</p>
+                            <span class="px-3 py-1 bg-yellow-500/10 text-yellow-500 text-xs rounded-full font-semibold uppercase tracking-wider">Instância Consultiva</span>
+                            <h3 class="text-2xl font-bold text-white mt-3">Conselho Consultivo</h3>
+                            <p class="text-sm text-live-muted">Carlos Alberto Alvarenga Filho & Silvana</p>
                         </div>
-                        <i data-lucide="shield" class="w-12 h-12 text-live-accent opacity-20"></i>
+                        <i data-lucide="shield" class="w-12 h-12 text-yellow-500 opacity-20"></i>
                     </div>
                     <div class="grid md:grid-cols-2 gap-8 mt-6 pt-6 border-t border-live-border">
                         <div class="space-y-4">
-                            <h4 class="text-white font-medium flex items-center gap-2"><i data-lucide="target" class="w-4 h-4 text-live-accent"></i> Missão do Cargo</h4>
+                            <h4 class="text-white font-medium flex items-center gap-2"><i data-lucide="target" class="w-4 h-4 text-yellow-500"></i> Missão do Cargo</h4>
                             <p class="text-sm text-live-muted leading-relaxed">
-                                Liderar a transição geracional e societária da Casas Goianita, afastando-se do operacional diário para auditar os resultados tributários (junto ao escritório Estúdio), coordenar a defesa da RJ contra a Caixa e chancelar acordos e comodatos entre as marcas.
+                                Apoiar o direcionamento estratégico da Casas Goianita em caráter estritamente consultivo. Sem direito a voto e sem poder executivo ou de execução diária. Foco na perenidade do negócio, mediação de conflitos e análise dos balanços e DRE/DFC mensais.
                             </p>
                         </div>
                         <div class="space-y-4">
-                            <h4 class="text-white font-medium flex items-center gap-2"><i data-lucide="check-square" class="w-4 h-4 text-live-accent"></i> Entregas em 90 dias</h4>
-                            <ul class="text-sm text-live-muted space-y-2">
-                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-live-accent mt-0.5"></i> Instituição formal do Conselho Consultivo.</li>
-                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-live-accent mt-0.5"></i> Assinatura do comodato fiscal Castor &lt;-&gt; Virtual.</li>
-                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-live-accent mt-0.5"></i> Transição da verificação de extratos bancários para a tesouraria.</li>
-                            </ul>
+                            <h4 class="text-white font-medium flex items-center gap-2"><i data-lucide="check-square" class="w-4 h-4 text-yellow-500"></i> Papel Operacional de Silvana</h4>
+                            <p class="text-sm text-live-muted leading-relaxed">
+                                Silvana atua sem poder administrativo/executivo, mas apoia a operação diretamente no **Visual Merchandising (VM)** das gôndolas e mesas de composição, na curadoria estética das compras de tapetes/lavabos e na geração de conteúdos e fotos de mesa posta.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -267,8 +267,8 @@
                 <div class="glass-card p-8 border-l-4 border-live-accent" id="cargo-comercial">
                     <div class="flex justify-between items-start">
                         <div>
-                            <span class="px-3 py-1 bg-live-accent-dim text-live-accent text-xs rounded-full font-semibold uppercase tracking-wider">Receita & Marketing</span>
-                            <h3 class="text-2xl font-bold text-white mt-3">Diretoria Comercial & Marketing (CCO/CMO)</h3>
+                            <span class="px-3 py-1 bg-live-accent-dim text-live-accent text-xs rounded-full font-semibold uppercase tracking-wider">Diretoria Executiva</span>
+                            <h3 class="text-2xl font-bold text-white mt-3">Diretoria Comercial & Marketing</h3>
                             <p class="text-sm text-live-muted">Cláudia Cristina Alvarenga Meirelles</p>
                         </div>
                         <i data-lucide="trending-up" class="w-12 h-12 text-live-accent opacity-20"></i>
@@ -277,15 +277,43 @@
                         <div class="space-y-4">
                             <h4 class="text-white font-medium flex items-center gap-2"><i data-lucide="target" class="w-4 h-4 text-live-accent"></i> Missão do Cargo</h4>
                             <p class="text-sm text-live-muted leading-relaxed">
-                                Maximizar as receitas das lojas físicas e e-commerce. Liderar a expansão do canal B2C (integrando a Lista de Presentes Fígital de bônus PIX/Crédito) e B2B corporativo. Supervisionar as regras comerciais e marketing digital.
+                                Centralizar a estratégia de geração de receita da empresa. Gestão da Lista de Casamento Fígital (saldo PIX com deságio de 10% para saque ou 100% de crédito na loja). Aprovação de orçamentos e do plano de tráfego pago (WhatsApp e redes).
                             </p>
                         </div>
                         <div class="space-y-4">
                             <h4 class="text-white font-medium flex items-center gap-2"><i data-lucide="check-square" class="w-4 h-4 text-live-accent"></i> Entregas em 90 dias</h4>
                             <ul class="text-sm text-live-muted space-y-2">
-                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-live-accent mt-0.5"></i> Ativar o novo portal da Lista de Presentes via Huapps/Olist.</li>
-                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-live-accent mt-0.5"></i> Parametrizar a regra automática de cashback para noivas no site.</li>
-                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-live-accent mt-0.5"></i> Sincronizar promoções ativas direto com o PDV do e-commerce.</li>
+                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-live-accent mt-0.5"></i> Homologação da integração da Lista de Presentes Fígital (Olist/Huapps).</li>
+                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-live-accent mt-0.5"></i> Elaboração dos novos e-mails e alertas automáticos de termos de noivas.</li>
+                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-live-accent mt-0.5"></i> Parametrizar a verba de campanhas de tráfego associando marcas premium (C&A, Porto Brasil).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Supply Chain -->
+                <div class="glass-card p-8 border-l-4 border-live-accent" id="cargo-compras">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="px-3 py-1 bg-live-accent-dim text-live-accent text-xs rounded-full font-semibold uppercase tracking-wider">Diretoria Executiva</span>
+                            <h3 class="text-2xl font-bold text-white mt-3">Diretoria de Supply Chain / Compras</h3>
+                            <p class="text-sm text-live-muted">Carlos Filho (Curuca)</p>
+                        </div>
+                        <i data-lucide="package" class="w-12 h-12 text-live-accent opacity-20"></i>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-8 mt-6 pt-6 border-t border-live-border">
+                        <div class="space-y-4">
+                            <h4 class="text-white font-medium flex items-center gap-2"><i data-lucide="target" class="w-4 h-4 text-live-accent"></i> Missão do Cargo</h4>
+                            <p class="text-sm text-live-muted leading-relaxed">
+                                Planejar e executar as compras com foco em giro de estoque e margem de lucro. Responsável por qualificar fornecedores, gerir contratos e coordenar o faturamento das notas em seus CNPJs devidos (Castor vs. Virtual) para conformidade com a tributação do e-commerce.
+                            </p>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="text-white font-medium flex items-center gap-2"><i data-lucide="check-square" class="w-4 h-4 text-live-accent"></i> Entregas em 90 dias</h4>
+                            <ul class="text-sm text-live-muted space-y-2">
+                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-live-accent mt-0.5"></i> Estabelecer o cálculo do Estoque Mínimo e sugestão de compras no ERP.</li>
+                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-live-accent mt-0.5"></i> Segregar os faturamentos de fornecedores nacionais no faturamento Castor.</li>
+                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-live-accent mt-0.5"></i> Reduzir em 15% a ruptura de produtos Curva A.</li>
                             </ul>
                         </div>
                     </div>
@@ -295,9 +323,9 @@
                 <div class="glass-card p-8 border-l-4 border-live-accent" id="cargo-operacoes">
                     <div class="flex justify-between items-start">
                         <div>
-                            <span class="px-3 py-1 bg-live-accent-dim text-live-accent text-xs rounded-full font-semibold uppercase tracking-wider">Operações & Logística</span>
-                            <h3 class="text-2xl font-bold text-white mt-3">Diretoria de Operações e Experiência do Cliente (COO)</h3>
-                            <p class="text-sm text-live-muted">Silvana</p>
+                            <span class="px-3 py-1 bg-live-accent-dim text-live-accent text-xs rounded-full font-semibold uppercase tracking-wider">Diretoria Executiva</span>
+                            <h3 class="text-2xl font-bold text-white mt-3">Diretoria de Operações & Logística</h3>
+                            <p class="text-sm text-live-muted">Elber</p>
                         </div>
                         <i data-lucide="settings" class="w-12 h-12 text-live-accent opacity-20"></i>
                     </div>
@@ -305,15 +333,15 @@
                         <div class="space-y-4">
                             <h4 class="text-white font-medium flex items-center gap-2"><i data-lucide="target" class="w-4 h-4 text-live-accent"></i> Missão do Cargo</h4>
                             <p class="text-sm text-live-muted leading-relaxed">
-                                Assegurar que a operation das lojas físicas funcione conforme as diretrizes do sistema 5S. Liderar a expansão física e virtual do brechó **Novo de Novo (ReCommerce)**, a implantação do layout de Visual Merchandising e o controle rígido do estoque.
+                                Assegurar o funcionamento das 3 lojas físicas e da central de logística. Liderar a execução física do brechó **Novo de Novo (ReCommerce)**, inclusive operando o recebimento, a triagem e a precificação sistêmica baseada no algoritmo de IA.
                             </p>
                         </div>
                         <div class="space-y-4">
                             <h4 class="text-white font-medium flex items-center gap-2"><i data-lucide="check-square" class="w-4 h-4 text-live-accent"></i> Entregas em 90 dias</h4>
                             <ul class="text-sm text-live-muted space-y-2">
-                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-live-accent mt-0.5"></i> Implementação da precificação por IA no "Novo de Novo".</li>
-                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-live-accent mt-0.5"></i> Configuração física da banca de usados em formato de boutique.</li>
-                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-live-accent mt-0.5"></i> Auditoria de estoque rotativo (zerar furos no PMenu).</li>
+                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-live-accent mt-0.5"></i> Configuração da área física do Novo de Novo nas lojas.</li>
+                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-live-accent mt-0.5"></i> Implantação de contagens cíclicas semanais de estoque.</li>
+                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-live-accent mt-0.5"></i> Manual operacional de Visual Merchandising (VM) e layout.</li>
                             </ul>
                         </div>
                     </div>
@@ -323,9 +351,9 @@
                 <div class="glass-card p-8 border-l-4 border-live-accent" id="cargo-financeiro">
                     <div class="flex justify-between items-start">
                         <div>
-                            <span class="px-3 py-1 bg-live-accent-dim text-live-accent text-xs rounded-full font-semibold uppercase tracking-wider">Controladoria & Backoffice</span>
-                            <h3 class="text-2xl font-bold text-white mt-3">Diretoria Financeira e Administrativa (CFO)</h3>
-                            <p class="text-sm text-live-muted">A contratar / Mateus (Contador)</p>
+                            <span class="px-3 py-1 bg-live-accent-dim text-live-accent text-xs rounded-full font-semibold uppercase tracking-wider">Diretoria Executiva</span>
+                            <h3 class="text-2xl font-bold text-white mt-3">Diretoria Financeira (CFO)</h3>
+                            <p class="text-sm text-live-muted">Matheus</p>
                         </div>
                         <i data-lucide="wallet" class="w-12 h-12 text-live-accent opacity-20"></i>
                     </div>
@@ -333,43 +361,15 @@
                         <div class="space-y-4">
                             <h4 class="text-white font-medium flex items-center gap-2"><i data-lucide="target" class="w-4 h-4 text-live-accent"></i> Missão do Cargo</h4>
                             <p class="text-sm text-live-muted leading-relaxed">
-                                Garantir a saúde fiscal e financeira da empresa. Mapear o faturamento da Castor Filial para atendimento estrito às regras da tributação do e-commerce (TARI), coordenar a equipe de contas a pagar (Érica) e processar os repasses aos depositantes do "Novo de Novo".
+                                Voz e decisão financeira final. Controladoria, gestão tributária focada no e-commerce (TARI) e nos repasses de 40% aos depositantes do ReCommerce. Acompanhamento de DRE/DFC e coordenação da auditoria com o escritório Estúdio.
                             </p>
                         </div>
                         <div class="space-y-4">
                             <h4 class="text-white font-medium flex items-center gap-2"><i data-lucide="check-square" class="w-4 h-4 text-live-accent"></i> Entregas em 90 dias</h4>
                             <ul class="text-sm text-live-muted space-y-2">
-                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-live-accent mt-0.5"></i> Relatórios mensais de DRE/DFC integrados no novo ERP.</li>
-                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-live-accent mt-0.5"></i> Conciliação automatizada de PIX e adiantamentos de recebíveis.</li>
-                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-live-accent mt-0.5"></i> Implementação de centros de custo segregando despesas PF/PJ.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card Compras -->
-                <div class="glass-card p-8 border-l-4 border-live-accent" id="cargo-compras">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <span class="px-3 py-1 bg-live-accent-dim text-live-accent text-xs rounded-full font-semibold uppercase tracking-wider">Supply Chain & Compras</span>
-                            <h3 class="text-2xl font-bold text-white mt-3">Gerência de Supply Chain</h3>
-                            <p class="text-sm text-live-muted">Carlos Filho (Curuca)</p>
-                        </div>
-                        <i data-lucide="package" class="w-12 h-12 text-live-accent opacity-20"></i>
-                    </div>
-                    <div class="grid md:grid-cols-2 gap-8 mt-6 pt-6 border-t border-live-border">
-                        <div class="space-y-4">
-                            <h4 class="text-white font-medium flex items-center gap-2"><i data-lucide="target" class="w-4 h-4 text-live-accent"></i> Missão do Cargo</h4>
-                            <p class="text-sm text-live-muted leading-relaxed">
-                                Planejar e executar a política de compras. Eliminar a ruptura dos itens Curva A e "Top 5", negociar condições de preço e bonificação junto aos fornecedores e coordenar o faturamento das notas em seus CNPJs devidos (Castor vs. Virtual).
-                            </p>
-                        </div>
-                        <div class="space-y-4">
-                            <h4 class="text-white font-medium flex items-center gap-2"><i data-lucide="check-square" class="w-4 h-4 text-live-accent"></i> Entregas em 90 dias</h4>
-                            <ul class="text-sm text-live-muted space-y-2">
-                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-live-accent mt-0.5"></i> Estabelecer no ERP o cálculo do Estoque Mínimo e sugestão de compra.</li>
-                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-live-accent mt-0.5"></i> Faturamento individualizado por CNPJ na fonte.</li>
-                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-live-accent mt-0.5"></i> Fim das ordens de compra manuscritas em caderno físico.</li>
+                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-live-accent mt-0.5"></i> Emissão de DRE e DFC gerenciais mensais automatizados no ERP.</li>
+                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-live-accent mt-0.5"></i> Integrar conciliação bancária das maquinetas vinculadas à Castor Filial.</li>
+                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-live-accent mt-0.5"></i> Separação rígida PF/PJ no lançamento de contas a pagar (Érica).</li>
                             </ul>
                         </div>
                     </div>
